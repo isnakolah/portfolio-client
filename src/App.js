@@ -1,11 +1,11 @@
 import React from "react";
 
+// styles
+import "fontsource-roboto";
+import Layout from "./components/layout/Layout";
+
 const App = () => {
-  return (
-    <div>
-      <p>This is home</p>
-    </div>
-  );
+  return <Layout />;
 };
 
 export default App;
