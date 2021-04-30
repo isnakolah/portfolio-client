@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Divider, List, Drawer, Hidden, Typography } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
-export const drawerWidth = 340;
+const drawerWidth = 340;
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
