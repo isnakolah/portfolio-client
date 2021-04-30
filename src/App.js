@@ -28,21 +28,21 @@ const App = () => {
   const classes = useStyles();
 
   return (
-    <Suspense fallback={<CircularProgress />}>
-      <div className={classes.root}>
-        <CssBaseline />
+    <div className={classes.root}>
+      <CssBaseline />
 
-        {/* Side navigation */}
-        <SideNav />
+      {/* Side navigation */}
+      <SideNav />
 
-        {/* The main section of the application */}
-        <main className={classes.content}>
+      {/* The main section of the application */}
+      <main className={classes.content}>
+        <Suspense fallback={<CircularProgress />}>
           <Router>
             <Route path="/" component={LandingPage} />
           </Router>
-        </main>
-      </div>
-    </Suspense>
+        </Suspense>
+      </main>
+    </div>
   );
 };
 
