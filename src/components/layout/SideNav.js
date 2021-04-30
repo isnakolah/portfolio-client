@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import Divider from "@material-ui/core/Divider";
-import List from "@material-ui/core/List";
-import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
-import Typography from "@material-ui/core/Typography";
+import { Divider, List, Drawer, Hidden, Typography } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
-export const drawerWidth = 240;
+export const drawerWidth = 340;
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
