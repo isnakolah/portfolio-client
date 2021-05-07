@@ -1,11 +1,11 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Grid, Typography, Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles, styled } from "@material-ui/styles";
 
 const useStyles = makeStyles(() => ({
   root: {
-    color: "#d4d0d2c4",
+    color: "#d9d7da",
     height: "100%",
     justifyContent: "center",
     "& h1": {
@@ -21,6 +21,18 @@ const useStyles = makeStyles(() => ({
     },
   },
 }));
+
+const StyledButton = styled(Button)({
+  color: "#d9d7da",
+  boxShadow: "1px 1px 2px rgb(0 0 0 / 47%)",
+  border: "1px solid #d9d7da",
+  borderRadius: "0px",
+  animationTimingFunction: "ease-in-out",
+  "&:hover": {
+    color: "white",
+    borderColor: "white",
+  },
+});
 
 const LandingPage = () => {
   const classes = useStyles();
@@ -42,27 +54,28 @@ const LandingPage = () => {
       <Grid item xs={8}>
         <Typography variant="h1">Hi, I&apos;m Daniel</Typography>
         <Typography variant="h3">
-          a freelance software engineer specialized in both{" "}
-          <strong>frontend and backend</strong>
+          a software engineer specialized in both <strong>frontend and backend</strong>
         </Typography>
       </Grid>
       <Grid item>
-        <Button
+        <StyledButton
           variant="outlined"
           color="secondary"
           onClick={() => handleClick("/porfolio")}
+          size="large"
         >
           Portfolio
-        </Button>
+        </StyledButton>
       </Grid>
       <Grid item>
-        <Button
+        <StyledButton
           variant="outlined"
           color="secondary"
           onClick={() => handleClick("/my-offer")}
+          size="large"
         >
           My Offer
-        </Button>
+        </StyledButton>
       </Grid>
     </Grid>
   );
