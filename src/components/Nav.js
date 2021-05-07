@@ -13,17 +13,13 @@ import {
   CardMedia,
   Typography,
   CardContent,
-  IconButton,
 } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/styles";
-import EmailIcon from "@material-ui/icons/Email";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import InstagramIcon from "@material-ui/icons/Instagram";
 
 import profileImage from "../assets/images/profile-photo.jpg";
+
+import { socialDetails, primaryLinks, secondaryLinks } from "../utils/constants";
+import SocialIcon from "./SocialIcon";
 
 const drawerWidth = 340;
 
@@ -85,23 +81,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
 const NavDrawer = () => {
   const classes = useStyles();
   const history = useHistory();
   const handleProfileClick = () => {
     history.push("/");
   };
-
-  const primaryLinks = [
-    { id: "portfolio", to: "/porfolio", text: "Portfolio" },
-    { id: "myOffer", to: "/my-offer", text: "My Offer" },
-    { id: "contactMe", to: "/contact-me", text: "Contact Me" },
-  ];
-  const secondaryLinks = [
-    { id: "myCv", to: "/cv", text: "My Cv" },
-    { id: "techTalkSelection", to: "/tech-talk-selection", text: "Tech Talks" },
-    { id: "selectedBlogs", to: "/selected-blogs", text: "Blogs" },
-  ];
 
   const navLinks = (items) => {
     return (
@@ -117,48 +103,14 @@ const NavDrawer = () => {
     );
   };
 
-  const socialMedia = () => {
-    return [
-      {
-        name: "email",
-        icon: <EmailIcon />,
-        to: "#",
-      },
-      {
-        name: "linkedIn",
-        icon: <LinkedInIcon />,
-        to: "https://www.linkedin.com/in/danielnakolah",
-      },
-      {
-        name: "github",
-        icon: <GitHubIcon />,
-        to: "https://github.com/isnakolah",
-      },
-      {
-        name: "twitter",
-        icon: <TwitterIcon />,
-        to: "https://twitter.com/is_nakolah",
-      },
-      {
-        name: "facebook",
-        icon: <FacebookIcon />,
-        to: "https://www.facebook.com/daniel.nakolah/",
-      },
-      {
-        name: "instagram",
-        icon: <InstagramIcon />,
-        to: "https://www.instagram.com/is_nakolah/",
-      },
-    ].map((item) => (
-      <ListItem key={item.name}>
-        <Grid item xs={1}>
-          <a href={item.to} target="_blank" rel="noopener noreferrer">
-            <IconButton aria-label={item.name}>{item.icon}</IconButton>
-          </a>
-        </Grid>
-      </ListItem>
-    ));
+  const getSocialMediaIcon = (socialMediaDetail) => {
+    return (
+      <Grid item xs={2}>
+        <SocialIcon {...socialMediaDetail} />
+      </Grid>
+    );
   };
+
   return (
     <Box className={classes.root}>
       <Box className={toolbar} />
@@ -194,9 +146,9 @@ const NavDrawer = () => {
             <Grid item>
               <Typography paragraph>get in touch</Typography>
             </Grid>
-            <Grid item container>
+            <Grid item container xs={7}>
               {/* SocialMedia Contacts */}
-              <List>{socialMedia()}</List>
+              {socialDetails.map((detail) => getSocialMediaIcon(detail))}
             </Grid>
           </Grid>
         </Grid>
