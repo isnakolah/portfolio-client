@@ -6,35 +6,37 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
 
+const { ...iconProps } = { fontSize: "small" };
+
 export const socialDetails = [
   {
     name: "email",
-    icon: <EmailIcon fontSize="small" />,
+    icon: <EmailIcon {...iconProps} />,
     to: "#",
   },
   {
     name: "linkedIn",
-    icon: <LinkedInIcon fontSize="small" />,
+    icon: <LinkedInIcon {...iconProps} />,
     to: "https://www.linkedin.com/in/danielnakolah",
   },
   {
     name: "github",
-    icon: <GitHubIcon fontSize="small" />,
+    icon: <GitHubIcon {...iconProps} />,
     to: "https://github.com/isnakolah",
   },
   {
     name: "twitter",
-    icon: <TwitterIcon fontSize="small" />,
+    icon: <TwitterIcon {...iconProps} />,
     to: "https://twitter.com/is_nakolah",
   },
   {
     name: "facebook",
-    icon: <FacebookIcon fontSize="small" />,
+    icon: <FacebookIcon {...iconProps} />,
     to: "https://www.facebook.com/daniel.nakolah/",
   },
   {
     name: "instagram",
-    icon: <InstagramIcon fontSize="small" />,
+    icon: <InstagramIcon {...iconProps} />,
     to: "https://www.instagram.com/is_nakolah/",
   },
 ];
@@ -47,7 +49,7 @@ export const primaryLinks = [
 
 export const secondaryLinks = [
   { id: "myCv", to: "/cv", text: "My Cv" },
-  { id: "techTalkSelection", to: "/tech-talk-selection", text: "Tech Talks" },
   { id: "selectedBlogs", to: "/selected-blogs", text: "Blogs" },
+  { id: "techTalkSelection", to: "/tech-talk-selection", text: "Tech Talks" },
   { id: "certifications", to: "/cerfications", text: "Certifications" },
 ];
