@@ -44,13 +44,10 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "none",
     color: "white",
     backgroundColor: "#ce5c5c00",
-    "& h4": {
-      fontSize: 20,
-      letterSpacing: "0.1em",
-    },
     "& h5": {
       fontSize: 16,
       fontWeight: "300",
+      textTransform: "none",
     },
   },
   cardMedia: {
@@ -132,9 +129,7 @@ const NavDrawer = () => {
               className={classes.cardMedia}
             />
             <CardContent className={classes.cardContent}>
-              <Typography variant="h4">
-                <strong>Daniel Nakolah</strong>
-              </Typography>
+              <Typography variant="h5">DANIEL NAKOLAH</Typography>
               <Typography variant="h5">Full-Stack Software Engineer</Typography>
             </CardContent>
           </Card>
