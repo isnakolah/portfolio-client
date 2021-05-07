@@ -35,11 +35,15 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor: "#910d0d78",
+    color: "#d9d7da80",
   },
   card: {
     marginTop: 40,
     cursor: "pointer",
     boxShadow: "none",
+    color: "white",
+    backgroundColor: "#ce5c5c00",
     "& h1": {
       fontSize: 20,
       fontWeight: "500",
@@ -70,7 +74,10 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: "none",
       color: "inherit",
       "& .MuiTypography-body1": {
-        fontSize: 14,
+        fontSize: 13,
+        "&:hover": {
+          color: "white",
+        },
       },
     },
   },
