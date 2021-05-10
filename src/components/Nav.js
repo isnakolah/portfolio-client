@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 40,
     cursor: "pointer",
     boxShadow: "none",
-    color: "white",
+    color: "#ffffffd4",
     backgroundColor: "#ce5c5c00",
     "& h5": {
       fontSize: 16,
