@@ -1,58 +1,28 @@
-// libraries
-import React, { Suspense, lazy } from "react";
-import { CircularProgress, CssBaseline, Box } from "@material-ui/core";
-import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React from "react";
+import { Typography, Box, Grid } from "@material-ui/core";
+import { ThemeProvider, makeStyles } from "@material-ui/core/styles";
 
-// styles
-import "@fontsource/roboto";
-import theme from "./utils/themes";
+// styling
+import theme from "./utils/theme";
 
-// images
-import backgroundImage from "./assets/images/background-image.jpg";
-
-// components
-import Nav from "./components/Nav";
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
-    display: "flex",
-    minHeight: "100vh",
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-  },
-  // necessary for content to be below app bar
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
+    height: "100vh",
   },
 }));
-
-// import Layout from "./components/layout/Layout";
-const LandingPage = lazy(() => import("./components/LandingPage"));
 
 const App = () => {
   const classes = useStyles();
 
   return (
     <ThemeProvider theme={theme}>
-      <Box className={classes.root}>
-        <CssBaseline />
-
-        {/* Side navigation */}
-        <Nav />
-
-        {/* The main section of the application */}
-        <main className={classes.content}>
-          <Suspense fallback={<CircularProgress />}>
-            <Router>
-              <Route path="/" component={LandingPage} />
-            </Router>
-          </Suspense>
-        </main>
-      </Box>
+      <Grid container className={classes.root} alignItems="center" justify="center">
+        <Box>
+          <Typography variant="h1" color="primary">
+            This is so dope
+          </Typography>
+        </Box>
+      </Grid>
     </ThemeProvider>
   );
 };
