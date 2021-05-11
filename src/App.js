@@ -9,23 +9,30 @@ import {
 
 // styling
 import theme from "./utils/theme";
+import {
+  pageBackground,
+  mainAreaBackground,
+  circleBackground,
+} from "./utils/colors";
 
 // components
 import SideBar from "./components/SideBar";
-import MainArea from "./components/MainArea";
-// lazy loadgin
+import LandingPage from "./components/LandingPage";
+// lazy loading
 const Portfolio = lazy(() => import("./components/Portfolio"));
+const CvPage = lazy(() => import("./components/CvPage"));
+const OfferPage = lazy(() => import("./components/OfferPage"));
+const ContactPage = lazy(() => import("./components/ContactPage"));
 
 const useStyles = makeStyles(() => ({
   root: {
     minHeight: "100vh",
-    background: "linear-gradient(to right top, #65dfc9, #6cdbeb)",
+    background: pageBackground,
   },
   main: {
     minHeight: "80vh",
     width: "60%",
-    background:
-      "linear-gradient(to right bottom,rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.3))",
+    background: mainAreaBackground,
     borderRadius: "2rem",
     zIndex: "2",
     backdropFilter: "blur(2rem)",
@@ -42,8 +49,7 @@ const useStyles = makeStyles(() => ({
 
 const Circle = withStyles((theme) => ({
   root: {
-    background:
-      "linear-gradient(to right bottom,rgba(255, 255, 255, 0.8),rgba(255, 255, 255, 0.3))",
+    background: circleBackground,
     position: "absolute",
     borderRadius: "50%",
     [theme.breakpoints.down("xl")]: {
@@ -74,12 +80,14 @@ const App = () => {
             <SideBar />
           </Grid>
           <Grid item container xs={8} component="main">
-            <MainArea>
-              {/* Lazy load components when routing */}
-              <Suspense fallback={<div>loading...</div>}>
-                <Route to="/porfolio" component={Portfolio} />
-              </Suspense>
-            </MainArea>
+            {/* Lazy load components when routing */}
+            <Suspense fallback={<div>loading...</div>}>
+              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/portfolio" component={Portfolio} />
+              <Route exact path="/cv" component={CvPage} />
+              <Route exact path="/my-offer" component={OfferPage} />
+              <Route exact path="/contact-me" component={ContactPage} />
+            </Suspense>
           </Grid>
         </Grid>
       </Grid>
