@@ -11,13 +11,16 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
+import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
+import BusinessCenterIcon from "@material-ui/icons/BusinessCenter";
+import DvrIcon from "@material-ui/icons/Dvr";
 
 import profilePhoto from "../assets/images/profile-photo.jpg";
+import { mainAreaBackground, navLinkBackground } from "../utils/colors";
 
 const useStyles = makeStyles(() => ({
   root: {
-    background:
-      "linear-gradient(to right bottom,rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.3))",
+    background: mainAreaBackground,
     textAlign: "center",
     borderRadius: "2rem 0 0 2rem",
     fontSize: "0.85rem",
@@ -30,21 +33,25 @@ const useStyles = makeStyles(() => ({
       width: "4rem",
       height: "4rem",
       borderRadius: "50%",
-      marginLeft: "auto",
-      marginRight: "auto",
+      margin: "0 auto 0 auto",
     },
   },
   nav: {
-    "& div, a": {
+    "& a": {
       margin: "1rem 0 1rem 0",
-      color: "inherit",
+      borderRadius: "2rem",
+      color: "rgb(18 120 134)",
+      "&:hover": {
+        background: navLinkBackground,
+      },
       "& span": {
         padding: "0rem 1rem",
       },
     },
   },
   active: {
-    color: "red !important",
+    color: "rgb(43 73 97) !important",
+    background: navLinkBackground,
   },
 }));
 
@@ -63,7 +70,7 @@ const SideBar = () => {
         <Card className={classes.card}>
           <CardMedia image={profilePhoto} alt="profile photo" component="img" />
           <CardContent>
-            <Typography>Daniel Nakolah</Typography>
+            <Typography variant="h6">Daniel Nakolah</Typography>
             <Typography>FullStack Software Engineer</Typography>
           </CardContent>
         </Card>
@@ -75,7 +82,7 @@ const SideBar = () => {
             to="/portfolio"
             activeClassName={classes.active}
           >
-            <LibraryBooksIcon />
+            <DvrIcon />
             <Typography component="span">Portfolio</Typography>
           </ListItem>
           <ListItem
@@ -83,7 +90,7 @@ const SideBar = () => {
             to="/my-offer"
             activeClassName={classes.active}
           >
-            <LibraryBooksIcon />
+            <BusinessCenterIcon />
             <Typography component="span">My Offer</Typography>
           </ListItem>
           <ListItem
@@ -91,8 +98,16 @@ const SideBar = () => {
             to="/contact-me"
             activeClassName={classes.active}
           >
-            <LibraryBooksIcon />
+            <AlternateEmailIcon />
             <Typography component="span">Contact Me</Typography>
+          </ListItem>
+          <ListItem
+            component={NavLink}
+            to="/my-cv"
+            activeClassName={classes.active}
+          >
+            <LibraryBooksIcon />
+            <Typography component="span">My CV</Typography>
           </ListItem>
         </List>
       </Grid>
