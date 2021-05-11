@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import {
   Grid,
   Card,
@@ -34,9 +35,16 @@ const useStyles = makeStyles(() => ({
     },
   },
   nav: {
-    "& div": {
+    "& div, a": {
       margin: "1rem 0 1rem 0",
+      color: "inherit",
+      "& span": {
+        padding: "0rem 1rem",
+      },
     },
+  },
+  active: {
+    color: "red !important",
   },
 }));
 
@@ -62,21 +70,29 @@ const SideBar = () => {
       </Grid>
       <Grid>
         <List component="nav" className={classes.nav}>
-          <ListItem component="div">
+          <ListItem
+            component={NavLink}
+            to="/portfolio"
+            activeClassName={classes.active}
+          >
             <LibraryBooksIcon />
-            <Typography>Portfolio</Typography>
+            <Typography component="span">Portfolio</Typography>
           </ListItem>
-          <ListItem component="div">
+          <ListItem
+            component={NavLink}
+            to="/my-offer"
+            activeClassName={classes.active}
+          >
             <LibraryBooksIcon />
-            <Typography>Portfolio</Typography>
+            <Typography component="span">My Offer</Typography>
           </ListItem>
-          <ListItem component="div">
+          <ListItem
+            component={NavLink}
+            to="/contact-me"
+            activeClassName={classes.active}
+          >
             <LibraryBooksIcon />
-            <Typography>Portfolio</Typography>
-          </ListItem>
-          <ListItem component="div">
-            <LibraryBooksIcon />
-            <Typography>Portfolio</Typography>
+            <Typography component="span">Contact Me</Typography>
           </ListItem>
         </List>
       </Grid>
