@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { Box, Grid } from "@material-ui/core";
 import {
   ThemeProvider,
@@ -18,6 +18,7 @@ import {
 // components
 import SideBar from "./components/SideBar";
 import LandingPage from "./components/LandingPage";
+import GenericNotFound from "./components/GenericNotFound";
 // lazy loading
 const Portfolio = lazy(() => import("./components/Portfolio"));
 const CvPage = lazy(() => import("./components/CvPage"));
@@ -82,11 +83,16 @@ const App = () => {
           <Grid item container xs={8} component="main">
             {/* Lazy load components when routing */}
             <Suspense fallback={<div>loading...</div>}>
-              <Route exact path="/" component={LandingPage} />
-              <Route exact path="/portfolio" component={Portfolio} />
-              <Route exact path="/cv" component={CvPage} />
-              <Route exact path="/my-offer" component={OfferPage} />
-              <Route exact path="/contact-me" component={ContactPage} />
+              <Switch>
+                <Route exact path="/" component={LandingPage} />
+                <Route exact path="/portfolio" component={Portfolio} />
+                <Route exact path="/cv" component={CvPage} />
+                <Route exact path="/my-offer" component={OfferPage} />
+                <Route exact path="/contact-me" component={ContactPage} />
+                {/* Not found */}
+                <Route exact path="/404" component={GenericNotFound} />
+                <Redirect to="/404" />
+              </Switch>
             </Suspense>
           </Grid>
         </Grid>
