@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   Grid,
   Card,
@@ -29,6 +29,7 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "transparent",
     boxShadow: "none",
     cursor: "pointer",
+    textDecoration: "none",
     "& img": {
       width: "4rem",
       height: "4rem",
@@ -67,7 +68,7 @@ const SideBar = () => {
       justify="space-evenly"
     >
       <Grid item>
-        <Card className={classes.card}>
+        <Card className={classes.card} component={Link} to="/">
           <CardMedia image={profilePhoto} alt="profile photo" component="img" />
           <CardContent>
             <Typography variant="h6">Daniel Nakolah</Typography>
@@ -103,7 +104,7 @@ const SideBar = () => {
           </ListItem>
           <ListItem
             component={NavLink}
-            to="/my-cv"
+            to="/cv"
             activeClassName={classes.active}
           >
             <LibraryBooksIcon />
