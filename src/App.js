@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
+import { Route } from "react-router-dom";
 import { Box, Grid } from "@material-ui/core";
 import {
   ThemeProvider,
@@ -12,6 +13,8 @@ import theme from "./utils/theme";
 // components
 import SideBar from "./components/SideBar";
 import MainArea from "./components/MainArea";
+// lazy loadgin
+const Portfolio = lazy(() => import("./components/Portfolio"));
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -59,26 +62,29 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <>
-        <Grid
-          container
-          className={classes.root}
-          alignItems="center"
-          justify="center"
-          component="main"
-        >
-          <Grid container item component="section" className={classes.main}>
-            <Grid item container xs={4} component="aside">
-              <SideBar />
-            </Grid>
-            <Grid item container xs={8} component="main">
-              <MainArea />
-            </Grid>
+      <Grid
+        container
+        className={classes.root}
+        alignItems="center"
+        justify="center"
+        component="main"
+      >
+        <Grid container item component="section" className={classes.main}>
+          <Grid item container xs={4} component="aside">
+            <SideBar />
+          </Grid>
+          <Grid item container xs={8} component="main">
+            <MainArea>
+              {/* Lazy load components when routing */}
+              <Suspense fallback={<div>loading...</div>}>
+                <Route to="/porfolio" component={Portfolio} />
+              </Suspense>
+            </MainArea>
           </Grid>
         </Grid>
-        <Circle className={classes.topCircle} />
-        <Circle className={classes.bottomCircle} />
-      </>
+      </Grid>
+      <Circle className={classes.topCircle} />
+      <Circle className={classes.bottomCircle} />
     </ThemeProvider>
   );
 };
