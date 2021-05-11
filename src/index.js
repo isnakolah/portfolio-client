@@ -5,6 +5,10 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+// styles
+import "./index.css";
+import "@fontsource/poppins";
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>
