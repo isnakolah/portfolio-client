@@ -10,7 +10,7 @@ import {
 import theme from "./utils/theme";
 
 // components
-import NavBar from "./components/NavBar";
+import SideBar from "./components/SideBar";
 import MainArea from "./components/MainArea";
 
 const useStyles = makeStyles(() => ({
@@ -69,7 +69,7 @@ const App = () => {
         >
           <Grid container item component="section" className={classes.main}>
             <Grid item container xs={4} component="aside">
-              <NavBar />
+              <SideBar />
             </Grid>
             <Grid item container xs={8} component="main">
               <MainArea />

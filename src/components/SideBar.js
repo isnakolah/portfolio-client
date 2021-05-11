@@ -40,7 +40,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const NavBar = () => {
+const SideBar = () => {
   const classes = useStyles();
 
   return (
@@ -85,4 +85,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default SideBar;
