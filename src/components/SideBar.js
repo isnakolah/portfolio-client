@@ -4,7 +4,7 @@ import {
   Card,
   List,
   ListItem,
-  CardMedia,
+  Box,
   CardContent,
   Typography,
 } from "@material-ui/core";
@@ -34,7 +34,6 @@ const useStyles = makeStyles(() => ({
       width: "4rem",
       height: "4rem",
       borderRadius: "50%",
-      margin: "0 auto 0 auto",
     },
   },
   nav: {
@@ -69,7 +68,12 @@ const SideBar = () => {
     >
       <Grid item>
         <Card className={classes.card} component={Link} to="/">
-          <CardMedia image={profilePhoto} alt="profile photo" component="img" />
+          <Box
+            src={profilePhoto}
+            alt="profile photo"
+            component="img"
+            mx="auto"
+          />
           <CardContent>
             <Typography variant="h6">Daniel Nakolah</Typography>
             <Typography>FullStack Software Engineer</Typography>
