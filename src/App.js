@@ -80,7 +80,7 @@ const App = () => {
           <Grid item container xs={4} component="aside">
             <SideBar />
           </Grid>
-          <Grid item container xs={8} component="main">
+          <Grid item container xs={8} component={Box} p="1.5rem">
             {/* Lazy load components when routing */}
             <Suspense fallback={<div>loading...</div>}>
               <Switch>
