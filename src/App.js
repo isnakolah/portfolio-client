@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { Box, Grid } from "@material-ui/core";
+import { Box, Grid, CircularProgress } from "@material-ui/core";
 import {
   ThemeProvider,
   makeStyles,
@@ -19,6 +19,7 @@ import {
 import SideBar from "./components/SideBar";
 import LandingPage from "./components/LandingPage";
 import GenericNotFound from "./components/GenericNotFound";
+import ErrorBoundary from "./components/ErrorBoundary";
 // lazy loading
 const Portfolio = lazy(() => import("./components/Portfolio"));
 const CvPage = lazy(() => import("./components/CvPage"));
@@ -45,6 +46,14 @@ const useStyles = makeStyles(() => ({
   bottomCircle: {
     bottom: "5%",
     left: "10%",
+  },
+  loading: {
+    width: "100%",
+    height: "100%",
+  },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: "#fff",
   },
 }));
 
@@ -82,18 +91,32 @@ const App = () => {
           </Grid>
           <Grid item container xs={8} component={Box} p="1.5rem">
             {/* Lazy load components when routing */}
-            <Suspense fallback={<div>loading...</div>}>
-              <Switch>
-                <Route exact path="/" component={LandingPage} />
-                <Route exact path="/portfolio" component={Portfolio} />
-                <Route exact path="/cv" component={CvPage} />
-                <Route exact path="/my-offer" component={OfferPage} />
-                <Route exact path="/contact-me" component={ContactPage} />
-                {/* Not found */}
-                <Route exact path="/404" component={GenericNotFound} />
-                <Redirect to="/404" />
-              </Switch>
-            </Suspense>
+            <ErrorBoundary>
+              <Suspense
+                fallback={
+                  <Grid
+                    item
+                    container
+                    justify="center"
+                    alignItems="center"
+                    className={classes.loading}
+                  >
+                    <CircularProgress component={Grid} color="secondary" />
+                  </Grid>
+                }
+              >
+                <Switch>
+                  <Route exact path="/" component={LandingPage} />
+                  <Route exact path="/portfolio" component={Portfolio} />
+                  <Route exact path="/cv" component={CvPage} />
+                  <Route exact path="/my-offer" component={OfferPage} />
+                  <Route exact path="/contact-me" component={ContactPage} />
+                  {/* Not found */}
+                  <Route exact path="/404" component={GenericNotFound} />
+                  <Redirect to="/404" />
+                </Switch>
+              </Suspense>
+            </ErrorBoundary>
           </Grid>
         </Grid>
       </Grid>
