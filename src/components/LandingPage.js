@@ -1,10 +1,14 @@
 import React from "react";
+import { Grid, Typography } from "@material-ui/core";
 
 const LandingPage = () => {
   return (
-    <div>
-      <p>This is the landing Page</p>
-    </div>
+    <Grid item container direction="column" justify="center">
+      <Grid item variant="h4" component={Typography}>
+        Hi, I&apos;m Daniel a software engineer specialized in both{" "}
+        <strong>frontend and backend</strong>
+      </Grid>
+    </Grid>
   );
 };
 
