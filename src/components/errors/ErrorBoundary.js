@@ -43,7 +43,7 @@ export default class ErrorBoundary extends Component {
             }}
             mt="2rem"
           >
-            Reload
+            Refresh
           </Button>
         </Grid>
       );

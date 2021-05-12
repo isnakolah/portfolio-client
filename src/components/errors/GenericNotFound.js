@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import React from "react";
 
-import notFound from "../assets/images/not-found.png";
+import notFound from "../../assets/images/not-found.png";
 
 const useStyles = makeStyles(() => ({
   root: {

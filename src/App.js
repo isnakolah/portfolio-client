@@ -18,8 +18,8 @@ import {
 // components
 import SideBar from "./components/SideBar";
 import LandingPage from "./components/LandingPage";
-import GenericNotFound from "./components/GenericNotFound";
-import ErrorBoundary from "./components/ErrorBoundary";
+import GenericNotFound from "./components/errors/GenericNotFound";
+import ErrorBoundary from "./components/errors/ErrorBoundary";
 // lazy loading
 const Portfolio = lazy(() => import("./components/Portfolio"));
 const CvPage = lazy(() => import("./components/CvPage"));
