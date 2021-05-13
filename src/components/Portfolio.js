@@ -1,15 +1,12 @@
 import React from "react";
 import { changeTitle } from "../utils/title";
+import UnderConstruction from "./UnderConstruction";
 
 const Portfolio = () => {
   // change the title of page
   changeTitle("Portfolio");
 
-  return (
-    <div>
-      <p>Portfolio page</p>
-    </div>
-  );
+  return <UnderConstruction />;
 };
 
 export default Portfolio;

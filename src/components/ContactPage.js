@@ -1,14 +1,11 @@
 import React from "react";
 import { changeTitle } from "../utils/title";
+import UnderConstruction from "./UnderConstruction";
 
 const ContactPage = () => {
   changeTitle("Contact Me");
 
-  return (
-    <div>
-      <p>This is the contact page</p>
-    </div>
-  );
+  return <UnderConstruction />;
 };
 
 export default ContactPage;

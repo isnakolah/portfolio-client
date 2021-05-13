@@ -1,14 +1,12 @@
 import React from "react";
+
+import UnderConstruction from "./UnderConstruction";
 import { changeTitle } from "../utils/title";
 
 const OfferPage = () => {
   changeTitle("My Offer");
 
-  return (
-    <div>
-      <p>This is the offer page</p>
-    </div>
-  );
+  return <UnderConstruction />;
 };
 
 export default OfferPage;

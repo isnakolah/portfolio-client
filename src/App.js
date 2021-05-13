@@ -87,6 +87,7 @@ const App = () => {
       >
         <Grid container item component="section" className={classes.main}>
           <Grid item container xs={4} component="aside">
+            {/* Side bar */}
             <SideBar />
           </Grid>
           <Grid item container xs={8} component={Box} p="1.5rem">
