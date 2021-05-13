@@ -2,7 +2,7 @@
   "name": "portfolio-client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://www.isnakolah.me/",
+  "homepage": "https://www.isnakolah.me/",
   "dependencies": {
     "@fontsource/poppins": "^4.3.0",
     "@fontsource/roboto": "^4.2.3",
