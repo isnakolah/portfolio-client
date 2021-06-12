@@ -20,6 +20,7 @@ import SideBar from "./components/SideBar";
 import LandingPage from "./components/LandingPage";
 import GenericNotFound from "./components/errors/GenericNotFound";
 import ErrorBoundary from "./components/errors/ErrorBoundary";
+import EasterEggs from "./components/EasterEggs";
 // lazy loading
 const Portfolio = lazy(() => import("./components/Portfolio"));
 const CvPage = lazy(() => import("./components/CvPage"));
@@ -27,6 +28,14 @@ const OfferPage = lazy(() => import("./components/OfferPage"));
 const ContactPage = lazy(() => import("./components/ContactPage"));
 
 const useStyles = makeStyles(() => ({
+  "@global": {
+    "*::-webkit-scrollbar": {
+      width: "0.4em",
+    },
+    "*::-webkit-scrollbar-thumb": {
+      backgroundColor: "rgba(0,0,0,.2)",
+    },
+  },
   root: {
     minHeight: "100vh",
     background: pageBackground,
@@ -90,7 +99,15 @@ const App = () => {
             {/* Side bar */}
             <SideBar />
           </Grid>
-          <Grid item container xs={8} component={Box} p="1.5rem">
+          <Grid
+            item
+            container
+            xs={8}
+            component={Box}
+            p="1.5rem"
+            height="80vh"
+            className={classes.content}
+          >
             {/* Lazy load components when routing */}
             <ErrorBoundary>
               <Suspense
@@ -112,6 +129,11 @@ const App = () => {
                   <Route exact path="/cv" component={CvPage} />
                   <Route exact path="/my-offer" component={OfferPage} />
                   <Route exact path="/contact-me" component={ContactPage} />
+                  <Route
+                    exact
+                    path="/i-love-you-candy"
+                    component={EasterEggs}
+                  />
                   {/* Not found */}
                   <Route exact path="/404" component={GenericNotFound} />
                   <Redirect to="/404" />
