@@ -63,10 +63,10 @@ const EasterEggs = () => {
 
   useEffect(() => {
     const changeColor = setTimeout(() => {
-      const textColor = getRandomColor();
+      const backgroundColor = getRandomColor();
       setColors({
-        textColor: textColor,
-        backgroundColor: contrast(textColor),
+        textColor: contrast(backgroundColor),
+        backgroundColor: backgroundColor,
       });
     }, 833);
 
