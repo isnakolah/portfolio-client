@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Grid, Typography, Box } from "@material-ui/core";
 
-const words = [
-  "React.js.",
-  "C#(DotNet).",
-  "Python.",
-  "Django.",
-  "GoLang.",
-  "both front-end and backend.",
-];
+const words = ["C#(DotNet).", "React.js.", "Python.", "Django."];
 
 const LandingPage = () => {
   const [index, setIndex] = useState(0);
@@ -60,7 +53,7 @@ const LandingPage = () => {
       pr="1rem"
     >
       <Grid item variant="h4" component={Typography}>
-        Hi, I&apos;m Daniel a software engineer specialized in{" "}
+        Hi, I&apos;m Daniel a FullStack Engineer skilled in{" "}
         <strong>
           {`${words[index].substring(0, subIndex)}${blink ? "|" : " "}`}
         </strong>
