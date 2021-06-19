@@ -49,10 +49,10 @@ const getRandomColor = () => {
 
 const useStyles = makeStyles(() => ({
   root: {
-    overflowX: "auto",
     height: "calc(80vh - 3rem)",
     borderRadius: "2rem",
-    opacity: "0.75",
+    opacity: "0.5",
+    backdropFilter: "blur",
   },
 }));
 
@@ -68,7 +68,7 @@ const EasterEggs = () => {
         textColor: contrast(backgroundColor),
         backgroundColor: backgroundColor,
       });
-    }, 833);
+    }, 60000 / 72);
 
     return () => {
       clearTimeout(changeColor);
